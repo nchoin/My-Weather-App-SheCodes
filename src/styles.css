@@ -1,0 +1,18 @@
+:root {
+  --navyblue: #003366;
+  --aquamarine: #71b1c5;
+  --babyblue: #cbe6ef;
+  --white: #f0f2f3;
+  --orange: #f07f20;
+  --amber: #fdb750;
+  --yellow: #fccba0;
+}
+body{
+    background: var(--navyblue);
+}
+footer{
+    color:var(--white);
+}
+footer a{
+    color: var(--amber);
+}
