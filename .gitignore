@@ -125,3 +125,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# Ignore Mac system files
+.DS_Store
+
+# Ignore Visual studio  files
+.vscode
