@@ -36,7 +36,8 @@ function sendCitySubmitted(event){
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", sendCitySubmitted);
 
-
+// sets a default city when the page loads
+searchForCity("Narragansett");
 
 
 
