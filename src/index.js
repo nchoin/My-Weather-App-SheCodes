@@ -10,11 +10,9 @@ function refreshWeather(response) {
     "#current-temperature-value"
   );
   let changeDateElement = document.querySelector("#date");
-
   let date = new Date(response.data.time * 1000);
 
   changeCityElement.textContent = response.data.city;
-
   changeDateElement.textContent = formatDate(date);
   changeConditionsElement.textContent = response.data.condition.description;
   changeHumidityElement.textContent = `${response.data.temperature.humidity}%`;
@@ -24,6 +22,7 @@ function refreshWeather(response) {
   );
   changeIconElement.setAttribute("src", response.data.condition.icon_url);
 }
+
 // This function will format the date in a userfriendly manner.
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -57,7 +56,6 @@ function searchForCity(city) {
 function sendCitySubmitted(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#city-entered");
-
   console.log(searchCity.value);
   searchForCity(searchCity.value);
 }
