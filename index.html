@@ -16,22 +16,25 @@
       rel="stylesheet"
     />
     <title>Weather App - SheCodes-NCK</title>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="weather-app">
       <header>
+        <form action="" class="search-form" id="search-form">
         <input
-          type="text"
+          type="search"
           placeholder="Enter a city"
           required
           id="city-entered"
         />
         <input type="submit" value="Search" id="button" />
+        </form>
       </header>
 
       <main class="container">
         <div id="current-weather-conditions">
-          <h1 class="weather-city">Westport</h1>
+          <h1 class="weather-city" id="weather-city">Westport</h1>
 
           <p id="date" class="current-forecast">date</p>
           <p id="conditions" class="current-forecast">
