@@ -7,12 +7,16 @@ function refreshWeather(response){
     let changeWindElement = document.querySelector("#wind")
     let changeIconElement = document.querySelector("#current-temperature-icon");
     let changeTempValueElement = document.querySelector("#current-temperature-value");
+    let dateElement = document.querySelector("#date");
+    let date = new Date(response.data.time*1000);
     
     changeCityElement.textContent = response.data.city;
+    dateElement.textContent=
     changeConditionsElement.textContent = response.data.condition.description;
     changeHumidityElement.textContent = `${response.data.temperature.humidity}%`;
     changeWindElement.textContent= `${Math.round(response.data.wind.speed)}mph`;
     changeTempValueElement.textContent = Math.round(response.data.temperature.current);
+    changeIconElement.setAttribute("src", response.data.condition.icon_url)
 }
 
 
@@ -42,12 +46,12 @@ searchForCity("Narragansett");
 
 
 // formatting with dates
-let date = document.querySelector("#date");
-let today = new Date();
-let localFormat = today.toLocaleString();
-let hour = today.getHours();
-let localHour = today.toLocaleString(undefined, { hour: 'numeric', hour12: true });
-console.log(localHour);
-let minutes = today.getMinutes().toString().padStart(2, "0");
-console.log(localFormat);
-date.innerHTML = `${localFormat}`;
+
+// let today = new Date();
+// let localFormat = today.toLocaleString();
+// let hour = today.getHours();
+// let localHour = today.toLocaleString(undefined, { hour: 'numeric', hour12: true });
+// console.log(localHour);
+// let minutes = today.getMinutes().toString().padStart(2, "0");
+// console.log(localFormat);
+// date.innerHTML = `${localFormat}`;
