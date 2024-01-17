@@ -112,26 +112,34 @@ footer {
 footer a {
   color: var(--ltyellow);
 }
-
+@media  screen and (max-width:520px) {
+    #city-entered {
+    margin: 5px auto;
+    width: 100%;
+    height: 40px;
+    font-size: 1em;
+  }
+  #button {
+    width: 100px;
+    padding: 5px;
+    margin: 5px auto;
+    font-size: 1.2em;
+  }
+}
 @media screen and (max-width: 430px) {
- .container{
-  justify-content:space-between;
- }
-#city-entered {
-margin: 5px auto;
-  width: 100%;
-  height: 40px;
-  font-size: 1em;
-}
-#button {
-  width: 100px;
-  padding: 5px;
-  margin: 5px auto;
-  font-size: 1em;
-}
- .container-current-temp-display {
-  margin-right: 0px;
-}
+  .container {
+    justify-content: space-between;
+  }
+
+  #button {
+    font-size: 1em;
+  }
+  .weather-city {
+    font-size: 1.8em;
+  }
+  .container-current-temp-display {
+    margin-right: 0px;
+  }
   #current-temperature-icon {
     width: 50px;
     padding-right: 3px;
