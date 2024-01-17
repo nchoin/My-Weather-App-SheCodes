@@ -14,16 +14,10 @@
   --ltblue: #dbf5f0;
 }
 body {
-  /* background: var(--grey); */
-
-body {
-        background-image: url("images/allyson-beaucourt-m_uSWBJWr0s-unsplash.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* background-color: black; */
-
+  background: var(--grey);
   font-family: "Dosis", sans-serif;
 }
+
 footer {
   color: var(--white);
   margin: 10px auto;
@@ -31,19 +25,19 @@ footer {
 footer a {
   color: var(--amber);
 }
-h1{
-    color: var(--cream);
-    margin: 2px;
+h1 {
+  color: var(--cream);
+  margin: 2px;
 }
-p{
-    margin: 0px;
-    color: var(--yellow);
-    font-size: 1.2em;
+p {
+  margin: 0px;
+  color: var(--yellow);
+  font-size: 1.2em;
 }
 .weather-app {
   background: var(--midnight);
   max-width: 600px;
-  margin: 30px auto;
+  margin: 100px auto;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px var(--aquamarine);
@@ -60,7 +54,7 @@ p{
 #button {
   border-radius: 5px;
   width: 125px;
- padding: 10px;
+  padding: 10px;
   margin: 10px;
   background: var(--yellow);
   font-size: 1.3em;
@@ -69,9 +63,11 @@ p{
   border: 2px solid var(--navyblue);
   font-family: "Dosis", sans-serif;
 }
-#current-weather-conditions{
-    display: block;
+#current-weather-conditions {
+
 }
-#current-temperature-icon{
-    display: block;
+#current-temperature-icon {
+
+}
+.weather-app {
 }
