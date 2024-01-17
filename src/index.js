@@ -8,6 +8,8 @@ function refreshWeather(response){
     let changeIconElement = document.querySelector("#current-temperature-icon");
     let changeTempValueElement = document.querySelector("#current-temperature-value");
     let dateElement = document.querySelector("#date");
+
+    
     let date = new Date(response.data.time*1000);
     
     changeCityElement.textContent = response.data.city;
