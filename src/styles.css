@@ -17,7 +17,7 @@
 body {
   background: linear-gradient(
     90deg,
-    rgba(252, 251, 245, 1) 8%,
+    rgba(225, 231, 224, 1) 8%,
     rgba(197, 224, 227, 1) 54%,
     rgba(106, 164, 176, 1) 82%
   );
@@ -112,8 +112,8 @@ footer {
 footer a {
   color: var(--ltyellow);
 }
-@media  screen and (max-width:520px) {
-    #city-entered {
+@media screen and (max-width: 520px) {
+  #city-entered {
     margin: 5px auto;
     width: 100%;
     height: 40px;
