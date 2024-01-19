@@ -43,7 +43,31 @@ function formatDate(date) {
 
   return `${day}, ${hours}:${minutes}`;
 }
+// This function will use the data in API to display the next five days of weather.
 
+
+function displayForecast() {
+
+  let days = ["Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="weather-forecast-day"> 
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-icon">❄️</div>
+        <div class="weather-forecast-temps">
+            <span class="weather-forecast-max-temp"><strong>32°</strong></span>
+            <span class="weather-forecast-min-temp">18°</span>
+        </div>
+    </div>
+       `;
+  });
+  let forecastElement = document.querySelector("#five-day-forecast");
+  forecastElement.innerHTML=forecastHTML;
+}
 // this function takes the searchCity.value from the sendCitySubmitted function because we used it as an argument, and will add the city to the weatherApiUrl.
 function searchForCity(city) {
   let weatherApiKey = "6bccfefa354f0f4do4245dc0a56fata0";
@@ -64,6 +88,8 @@ searchFormElement.addEventListener("submit", sendCitySubmitted);
 
 // sets a default city when the page loads
 searchForCity("Narragansett");
+displayForecast();
+
 
 // formatting with dates
 

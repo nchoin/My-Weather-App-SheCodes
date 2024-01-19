@@ -157,3 +157,45 @@ footer a {
     padding: 0 0 15px 2px;
   }
 }
+
+#five-day-forecast{
+  display:flex;
+  justify-content: space-evenly;
+}
+.weather-forecast-day{
+  margin:5px;
+  background: var(--turquoise);
+  border-radius: 5px;
+  width:100%
+}
+.weather-forecast-date{
+color: var(--cream);
+font-size: 1.5em;
+font-weight: 800;
+margin-top: 5px;
+padding:5px;
+text-align: center;
+}
+.weather-forecast-icon{
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.weather-forecast-temps{
+  text-align: center;
+  margin-bottom: 15px;
+}
+.weather-forecast-max-temp{
+color: var(--ltyellow);
+font-size: 1.5em;
+font-weight: 600;
+padding:3px;
+
+}
+.weather-forecast-min-temp{
+color: var(--ltblue);
+font-size: 1.5em;
+font-weight: 300;
+padding:3px;
+
+}
