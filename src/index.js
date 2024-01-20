@@ -61,7 +61,11 @@ function sendCitySubmitted(event) {
   console.log(searchCity.value);
   searchForCity(searchCity.value);
 }
-
+function formatForecastDay(timestamp){
+    let date = new Date(timestamp*1000);
+    let days = ["Sun", "Mon", "Tue", "Wed","Thur", "Fri","Sat"];
+    return days[date.getDay()];
+}
 
 function getForecastCity(city) {
   let forecastApiKey = "6bccfefa354f0f4do4245dc0a56fata0";
@@ -77,13 +81,13 @@ console.log(response.data)
   
   let forecastHTML = "";
 
- response.data.daily.forEach(function (day) {
-{
+ response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
     forecastHTML =
       forecastHTML +
       `
     <div class="weather-forecast-day"> 
-        <div class="weather-forecast-date">Day</div>
+        <div class="weather-forecast-date">${formatForecastDay(day.time)}</div>
         <div class="weather-forecast-icon">
         <img
               src="${day.condition.icon_url}"
@@ -91,8 +95,8 @@ console.log(response.data)
             />
             </div>
         <div class="weather-forecast-temps">
-            <span class="weather-forecast-max-temp"><strong>${Math.round(day.temperature.maximum)}</strong></span>
-            <span class="weather-forecast-min-temp">${Math.round(day.temperature.minimum)}</span>
+            <span class="weather-forecast-max-temp"><strong>${Math.round(day.temperature.maximum)}°F</strong></span>
+            <span class="weather-forecast-min-temp">${Math.round(day.temperature.minimum)}°F</span>
         </div>
     </div>
        `;
