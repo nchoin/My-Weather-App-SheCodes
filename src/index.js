@@ -21,6 +21,8 @@ function refreshWeather(response) {
     response.data.temperature.current
   );
   changeIconElement.setAttribute("src", response.data.condition.icon_url);
+
+  getForecastCity(response.data.city);
 }
 
 // This function will format the date in a userfriendly manner.
@@ -43,35 +45,11 @@ function formatDate(date) {
 
   return `${day}, ${hours}:${minutes}`;
 }
-// This function will use the data in API to display the next five days of weather.
 
-
-function displayForecast() {
-
-  let days = ["Tues", "Wed", "Thurs", "Fri", "Sat"];
-  let forecastHTML = "";
-
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="weather-forecast-day"> 
-        <div class="weather-forecast-date">${day}</div>
-        <div class="weather-forecast-icon">❄️</div>
-        <div class="weather-forecast-temps">
-            <span class="weather-forecast-max-temp"><strong>32°</strong></span>
-            <span class="weather-forecast-min-temp">18°</span>
-        </div>
-    </div>
-       `;
-  });
-  let forecastElement = document.querySelector("#five-day-forecast");
-  forecastElement.innerHTML=forecastHTML;
-}
 // this function takes the searchCity.value from the sendCitySubmitted function because we used it as an argument, and will add the city to the weatherApiUrl.
 function searchForCity(city) {
   let weatherApiKey = "6bccfefa354f0f4do4245dc0a56fata0";
-  let weatherApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${weatherApiKey}&units=imperial`;
+  let weatherApiUrl =  `https://api.shecodes.io/weather/v1/current?query=${city}&key=${weatherApiKey}&units=imperial`;
   console.log(weatherApiUrl);
   axios.get(weatherApiUrl).then(refreshWeather);
 }
@@ -83,12 +61,57 @@ function sendCitySubmitted(event) {
   console.log(searchCity.value);
   searchForCity(searchCity.value);
 }
+
+
+function getForecastCity(city) {
+  let forecastApiKey = "6bccfefa354f0f4do4245dc0a56fata0";
+  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&units=imperial`;
+  console.log(forecastApiUrl);
+  axios(forecastApiUrl).then(displayForecast);
+}
+
+// This function will use the data in API to display the next five days of weather.
+
+function displayForecast(response) {
+console.log(response.data)
+  
+  let forecastHTML = "";
+
+ response.data.daily.forEach(function (day) {
+{
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="weather-forecast-day"> 
+        <div class="weather-forecast-date">Day</div>
+        <div class="weather-forecast-icon">
+        <img
+              src="${day.condition.icon_url}"
+              class="weather-forecast-icon"
+            />
+            </div>
+        <div class="weather-forecast-temps">
+            <span class="weather-forecast-max-temp"><strong>${Math.round(day.temperature.maximum)}</strong></span>
+            <span class="weather-forecast-min-temp">${Math.round(day.temperature.minimum)}</span>
+        </div>
+    </div>
+       `;
+}
+  });
+  let forecastElement = document.querySelector("#five-day-forecast");
+  forecastElement.innerHTML=forecastHTML;
+}
+
+
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", sendCitySubmitted);
-
 // sets a default city when the page loads
 searchForCity("Narragansett");
-displayForecast();
+
+
+
+
 
 
 // formatting with dates
